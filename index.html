@@ -159,12 +159,37 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script type="text/javascript" src="js/backbone-min.js"></script>
+    <!--Underscore before Backbone-->
+    <script type="text/javascript" src="js/underscore.js"></script>
+    <script type="text/javascript" src="js/backbone.js"></script>
     <!-- Parse.js -->
     <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.3.3.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
     <!--Include the addiction of initialization call with our Application ID and JavaScritp key from Parse.js-->
     <script src="js/blog.js"></script>
+    <script type="text/javascript">
+        // Backbone instances
+        var User = Backbone.Model.extend // Backbone models are constructor functions
+        ( // Extend has 2 arguments
+          { // First one is an object => the instance's properties of the Class
+            // Instance properties
+            instanceProperty: "foo"
+          ,// Second is optionnal and is the Class property hash
+            // Class properties in addition of those inhereted by Backbone.Model's Class
+            classProperty: "bar"
+          }
+        );
+        var user = new User("Joe Montana");
+        
+        console.log(user.instanceProperty);
+        console.log(User.prototype.instanceProperty);
+        console.log(user.classProperty);
+        
+        console.log(Backbone.Model.prototype); // typeof Object
+        console.log(User);
+        console.log(User.prototype); // typeof Object
+        console.log(User.prototype.classProperty);
+    </script>
   </body>
 </html>
