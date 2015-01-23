@@ -3,7 +3,7 @@ $(function() {
   console.log(Parse);
   
   Parse.initialize("rBAyYVKtLXu0SqO4751YQb1P7aa1t7oGzym15dzb", "V02n1O65AhwAaVWtD8pFkj1OF5C26YGmfk3lfx16");
-
+  
   var TestObject = Parse.Object.extend("TestObject");
   var testObject = new TestObject();
   testObject.save({foo: "bar"}).then(function(object) {
@@ -15,4 +15,15 @@ $(function() {
   testObject2.save({toto: "bar"}).then(function(object) {
     console.log("An other instance of a new Class created!");
   });
+  
+  // Backbone instances
+  var User = Backbone.Model.extend
+  ( // Extend has 2 arguments
+    { // First one is an object => instance properties of the model
+      // Instance properties
+    },{ // Second is optionnal and is a class property hash
+      // Class properties
+    }
+  );
+  console.log(User.instanceProperty);
 });
